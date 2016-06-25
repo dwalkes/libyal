@@ -1,20 +1,11 @@
 ## Dokan library
-Get the Dokan installation from: http://dokan-dev.net/en/ and install the driver.
-
-Get the source.
-```
-svn checkout http://dokan.googlecode.com/svn/trunk/ dokan
-```
+Get the Dokan installation from: https://github.com/joachimmetz/dokan
 
 The Visual Studio project files expect the source directory to be named dokan and located in the directory containing the ${project_name}-```<version>``` directory.
 
-Download [dokan.patch](https://googledrive.com/host/0B3fBvzttpiiSZDA2Y3hBeWRUUzg/dokan.patch).
+Build the driver and install, see sys\howtobuild.txt in the dokan project for more information.
 
-Apply the patch:
-```
-cd dokan
-patch -p1 < ../dokan.patch
-```
+Change the "sys/public.h" file to include "windows.h" instead of "deviceioctl.h" after building the driver.  This is required for the Visual Studio build.
 
 The Dokan library is now ready to be build from the ${project_name} Visual Studio solution file and will be named dokan.dll.
 
